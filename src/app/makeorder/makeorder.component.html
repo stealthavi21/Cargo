@@ -1,0 +1,157 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+    <div class="Main-container">
+        <div class="form-group">
+        <div class="container-login">
+            <div class="wrap-login">
+              <span class="login-form-title">Make Cargo Order</span>
+                <form class="register-form">
+                   
+                    <label>Name:</label>
+                    <div class="wrap-input">
+                        
+                        <input type="text" class="input" placeholder="name"  
+                        id="name" name="name"
+                        [(ngModel)]="c.name"
+                        #name="ngModel"    
+                        required
+                       >
+                        <span class="focus-input" ></span>
+
+                      
+                    </div>
+                    
+                      
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div class="w3-text-red"> Name of Vehicle is required.</div>
+                      </div>
+                      <br>
+                      <label>Description: </label>
+                      <div class="wrap-input">
+                        
+                        <input type="text" class="input" placeholder="description"  
+                        id="desc" name="desc"
+                        [(ngModel)]="c.desc"
+                        #desc="ngModel"    
+                        required
+                       >
+                        <span class="focus-input" ></span>
+
+                      
+                    </div>
+                    
+                      
+                    <div *ngIf="desc.invalid && (desc.dirty || desc.touched)">
+                        <div class="w3-text-red"> Description of Cargo is required.</div>
+                      </div>
+                      <br>
+                 
+                      <label>Weight of the Cargo:</label>
+                    <div class="wrap-input">
+                        <input type="number" class="input" name="rate" placeholder="Weight" 
+                        id="load" min="0"
+                        [(ngModel)]="c.load"
+                        #load="ngModel"    
+                        (keypress)="keyPressNumbers($event)"
+                        required
+                        >KG
+                        <span class="focus-input"></span>
+                        
+                
+                    </div>
+                    <div *ngIf="load.invalid && (load.dirty || load.touched)">
+                        <div class="w3-text-red">Weight of the Cargo is required.</div>
+                      </div>
+                      
+                   
+                    <br>
+                    <label>Pickup From: </label>
+                    <div class="wrap-input">
+                      
+                      <input type="text" class="input" placeholder="Enter Location"  
+                      id="pick" name="pick"
+                      [(ngModel)]="c.pick"
+                      #pick="ngModel"    
+                      required
+                     >
+                      <span class="focus-input" ></span>
+
+                    
+                  </div>
+                  
+                    
+                  <div *ngIf="pick.invalid && (pick.dirty || pick.touched)">
+                      <div class="w3-text-red"> Pickup Location is required.</div>
+                    </div>
+                    <br>
+                    <label>To: </label>
+                    <div class="wrap-input">
+                      
+                      <input type="text" class="input" placeholder="Enter Destination"  
+                      id="to" name="to"
+                      [(ngModel)]="c.to"
+                      #to="ngModel"    
+                      required
+                     >
+                      <span class="focus-input" ></span>
+
+                    
+                  </div>
+                  
+                    
+                  <div *ngIf="to.invalid && (to.dirty || to.touched)">
+                      <div class="w3-text-red">Destination is Required.</div>
+                    </div>
+                    <br>
+                    <label>Distance:</label>
+                    <div class="wrap-input">
+                        <input type="number" class="input" name="dist" placeholder="Distance" 
+                        id="dist" min="0"
+                        [(ngModel)]="c.dist"
+                        #dist="ngModel"    
+                        (keypress)="keyPressNumbers($event)"
+                        required
+                        >KM
+                        <span class="focus-input"></span>
+                        
+                
+                    </div>
+                    <div *ngIf="dist.invalid && (dist.dirty || dist.touched)">
+                      <div class="w3-text-red">Distance is required.</div>
+                    </div>
+                    <br>
+                    <label>Select Transport Vehicle:</label>
+                   
+                      
+                   
+                    <br>
+                    <div *ngFor="let prod of vehiclelist">
+                      <input type="radio" id="Transport Supplier" name="drone" value={{prod[0]}}
+                    (click)="codesave(prod[0])">
+                    <label for="dewey">Name:{{prod[1]}} Type: {{prod[2]}} Rate: Rs{{prod[3]}}/km Supplier: {{prod[4]}} </label>
+                    <br>
+                    <h3><label>Cost: Rs{{prod[3]*this.c.dist}}</label></h3>
+
+                   
+                    </div>
+                     
+                  <form>
+                    
+                    <div class="login-form-btn-container">
+                        <button class="login-form-btn" (click)="addcargo()" >Add Cargo</button>
+                    </div>
+                 
+                    
+                  </form>
+                  
+  
+                </form>
+  
+            </div>
+        </div>
+    </div>
+    </div>
+  
+  </body>   

@@ -1,0 +1,48 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>h1 {text-align: center;}</style>
+<body>
+    
+   <div class="Main-container">
+        <div class="form-group">
+        <div class="container-login">
+            <div class="wrap-login">
+              <span class="login-form-title">Edit Profile</span>
+        
+           
+            <div class="Main-container">
+                <h2>Email ID:<input type="text" class="input" 
+                    id="name" name="email"
+                    [(ngModel)]="email" 
+        disabled
+                    ></h2>
+                    
+                  <h2>Username: 
+                  <input type="text" class="input" 
+                    [(ngModel)]="name"
+        
+                    ></h2>
+        
+                  <h2>Designation: <input type="text" class="input" 
+                    [(ngModel)]="type" disabled
+                    name="type"
+                    ></h2>
+            </div>
+        
+            <div class="login-form-btn-container">
+                <button class="login-form-btn" (click)="edit()">Save</button>
+            </div>
+            
+            
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+   
+    <!-- <button type="submit" [disabled]="newProductAddingForm.valid ? false : true" class="btn">Submit</button>
+    <button type="reset" class="btn">Reset</button> -->
+
+
+</body>

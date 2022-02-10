@@ -1,0 +1,121 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>h2 {text-align: center;}</style>
+<body>
+    <div class="Main-container">
+        <h2 >WELCOME {{name}}</h2>
+        
+          
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="login-form-btn-container" *ngIf="this.dataService.type===true">
+                
+                  <button class="login-form-btn" (click)="addorder()" >Add Transportation Order</button>
+              
+            </div>
+            <br><br><br>
+            <div class="col-12">
+      
+                <!-- all products list -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Order Lists</th>
+                        </tr>
+                        
+                    </thead>
+                    <thead *ngIf="showEmptyIcon">
+                        <tr>
+                            <th style="text-align: center;">
+                                <img src="/assets/images/empty-wishlist.png" style="max-width: 250px; max-height: 250px;"
+                                    alt="">
+                                <h4>No Cargo Order Added</h4><br><br>
+                               
+                            </th>
+                        </tr>
+                    </thead>
+                    <thead *ngIf="showEmptyIcon===false">
+                        <tr>
+                            <th>Icon</th>
+                            <th>Orders</th>
+                            <th>Cost</th>
+                            <th>Status</th>
+                          </tr>
+                    </thead>
+      
+                    <tbody>
+                        <tr *ngFor="let prod of cargolist">
+                            <td style="width: 15%">
+                                <div *ngIf="prod[11][2]==='Auto'"><img src="https://static.thenounproject.com/png/3381649-200.png" alt="Denim Jeans" style="width:100%"></div>
+                                <div *ngIf="prod[11][2]==='Large Truck'"><img src="https://cdn3.vectorstock.com/i/1000x1000/83/47/truck-icon-vector-20868347.jpg"  style="width:100%"></div>
+                                <div *ngIf="prod[11][2]==='Medium Truck'"><img src="https://icon-library.com/images/semi-truck-icon-png/semi-truck-icon-png-15.jpg"  style="width:100%"></div>
+                                <div *ngIf="prod[11][2]==='Small Truck'"><img src="data:image/png;base64,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" alt="Denim Jeans" style="width:100%"></div>
+                              </td>
+                            <td style="width: 50%">
+                               
+                                <a>
+                                  <h3><p class="price"><b>Name of Vehicle:</b> {{prod[1]}}</p></h3>
+                              </a>
+                              <a>
+                                <p class="price"><b>OrderID:</b> Rs.{{prod[0]}}</p>
+                            </a>
+                                <a>
+                                    <p class="price"><b>Description:</b> Rs.{{prod[2]}}</p>
+                                </a>
+                                <a>
+                                    <p><b>Weight:</b> {{prod[3]}} kg</p>
+                                </a>
+                                <a>
+                                    <p><b>From:</b> {{prod[4]}}  <b>To:</b> {{prod[5]}} <b>Distance:</b> {{prod[6]}} km</p>
+                                </a>
+                                <div *ngIf="this.dataService.type===true">
+                                <a>
+                                    <p><b>Vehicle:</b> {{prod[11][1]}}  <b>Type:</b> {{prod[11][2]}} <b>Rate:</b> {{prod[11][3]}} 
+                                </a>
+                                <a>
+                                    <p><b>Supplier:</b> {{prod[11][4]}}  <b>SupplierID:</b> {{prod[11][5]}} 
+                                </a>
+                              </div>
+                                
+                            </td>
+                            <td style="width: 15%; text-align: center; vertical-align: middle " >
+                              Cost: Rs.{{prod[12]}}
+                            </td>
+                            <td style="width: 50%; text-align: center; vertical-align: middle " >
+                                
+                               
+                                <div *ngIf="this.dataService.type===false">
+                                        
+                                    <div  *ngIf="prod[7]===false && prod[8]===false">
+                                        <p><button class="a-btn" (click)="approve(prod[0],prod[11][0])">Approve</button></p>
+                                        <p><button class="a-btn" (click)="reject(prod[0],prod[11][0])">Reject</button></p>
+                                    </div>
+                                </div>
+                                <div  *ngIf="prod[7]===false && prod[8]===false">
+                                    <div *ngIf="this.dataService.type===true">
+                                        <p><button class="login-form-btn" [id]="prod[0]" #removeBtn
+                                            (click)="removeorder(prod[0],prod[11][0])">Remove Order</button></p>
+                                                
+                                    </div>
+                                    <p><button class="a-btn">Order Awaiting Approval</button></p>
+                                   
+                                </div>
+                                <div *ngIf="prod[7]===true" style="text-align: center; vertical-align: middle ">
+                    
+                                              <button class="a-btn">Order Accepted</button>
+                                         </div>
+                                         <div *ngIf="prod[8]===true" style="text-align: center; vertical-align: middle ">
+                    
+                                            <button class="a-btn">Order Rejected</button>
+                                       </div>
+                              </td>
+                        </tr>
+                    </tbody>
+                
+                </table>
+      
+            </div>
+        </div>
+      </div>
+  </body>

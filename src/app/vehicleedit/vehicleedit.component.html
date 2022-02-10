@@ -1,0 +1,56 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>h1 {text-align: center;}</style>
+<body>
+    
+   <div class="Main-container">
+        <div class="form-group">
+        <div class="container-login">
+            <div class="wrap-login">
+              <span class="login-form-title">Edit Profile</span>
+        
+           
+            <div class="Main-container">
+                <h2>Vehicle Name:<input type="text" class="input" 
+                    id="name" name="email"
+                    [(ngModel)]="name" 
+        
+                    ></h2>
+                    
+                  <h2>Type: </h2>
+                    <select name="cars" id="cars" [(ngModel)]="type" placeholder="Select">
+                      <option value="Large Truck">Large Truck</option>
+                      <option value="Auto">Auto</option>
+                      <option value="Medium Truck">Medium Truck</option>
+                      <option value="Small Truck">Small Truck</option>
+                    </select>
+                 <br><br>
+        
+                  <h2>Rate:  
+                    <input type="text" class="input" 
+                    [(ngModel)]="rate" OnlyNumber="true"
+                    name="type"
+                    number  (keypress)="keyPressNumbers($event)"
+                    >
+                  
+                   
+                  </h2>
+            </div>
+        
+            <div class="login-form-btn-container">
+                <button class="login-form-btn"(click)="editvehicle()" >Save</button>
+            </div>
+            
+            
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+   
+    <!-- <button type="submit" [disabled]="newProductAddingForm.valid ? false : true" class="btn">Submit</button>
+    <button type="reset" class="btn">Reset</button> -->
+
+
+</body>

@@ -1,0 +1,56 @@
+<ul>
+    
+        <li> <a href=#>
+            
+                <div class="left">
+                    
+                    <img width="100" height="40" src="/assets/Cargogo.jpg" alt="IMG">
+                </div>  
+                
+
+          
+      
+    </a>
+        
+        
+        </li>
+
+  
+    <div *ngIf="this.dataService.profile===false">
+    <li  style="float:right" ><a style="float:right" router="/login" class="active" (click)="login()">Login</a></li>
+    <li style="float:right"> <a style="float:right" router="/reg" class="active" (click)="register()">Register</a></li>
+   
+  </div>
+    <div *ngIf="this.dataService.profile">
+        <!-- <div *ngIf="this.dataService.type===false"><li  style="float:right"><a style="float:right" router="/addveh" class="active" (click)="addvehicle()">Add Vehicle</a></li></div> -->
+        <li  style="float:right">  <a style="float:right"  class="active" (click)="homepage()">View Orders</a></li>
+        <div *ngIf="this.dataService.type===false"><li  style="float:right"><a style="float:right" router="/reg" class="active" (click)="vehiclelist()" >Vehicle Lists</a></li></div>
+        
+        <li style="float:right"> <a style="float:right"  class="active" (click)="profiler()">Profile</a></li>
+        <li style="float:right"> <a style="float:right"  class="active" (click)="logout()" >LogOut</a></li></div>
+</ul> 
+<body>
+    
+    <div class="Main-container" *ngIf="isVisible">
+        <div class="container-login">
+            <div class="wrap-login">
+  
+                <div class="login-pic">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/cargo-3025677-2518747.png" alt="IMG">
+                </div>
+                <form class="login-form">
+                    <span class="login-form-title">About Us</span>
+                    <p>CargoGo is a revolutionary approach that makes intra-city pickups and deliveries thoroughly efficient and reliable. We have a varied fleet of vehicles under our command. We intend to give structure to this largely unprofessional and unregulated industry. It’s as simple as calling a cab: Just go ahead and give it a try Cargo On Go is an integrated Logistics provider. Although Cargo On Go cannot claim to do everything involved in the National Supply Chain</p>
+                </form>
+                    
+                
+                
+  
+            </div>
+        </div>
+    
+</div>
+<div *ngIf="comp"><router-outlet></router-outlet></div>
+  </body>
+
+<!--display component-->

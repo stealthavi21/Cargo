@@ -1,0 +1,94 @@
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #3e8e41;
+  }
+
+
+  .login-form-btn-container{
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+.login-form-btn{
+    font-family:'poppins',sans-serif ;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    background: #57b846;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px ;
+    transition: all 0.4s;
+    border: none;
+
+}
+.red-btn{
+  font-family:'poppins',sans-serif ;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    background: #e75845;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px ;
+    transition: all 0.4s;
+    border: none;
+}
+  button.productActionBtnEdit {
+    background-color: lightskyblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font: bold;
+  }
+
+  button.productActionBtnRemove {
+    background-color: lightsalmon;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font: bold;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  img{
+    padding: 10px;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,99 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+    <div class="Main-container">
+        <div class="form-group">
+        <div class="container-login">
+            <div class="wrap-login">
+  
+                <div class="login-pic">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/cargo-3025677-2518747.png" alt="IMG">
+                </div>
+  
+                <form class="register-form">
+                    <span class="login-form-title">Register</span>
+                    
+                    <div class="wrap-input">
+                        
+                        <input type="text" class="input" placeholder="Email"  
+                        id="email" name="email"
+                        [(ngModel)]='u.email' 
+                        #email="ngModel"    
+                        required>
+                        <span class="focus-input" ></span>
+                        <span class="symbol-input">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                      
+                    </div>
+                    
+                      
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div class="w3-text-red"> Email is required.</div>
+                      </div>
+                    <div class="wrap-input">
+                        <input type="text" class="input" name="name" placeholder="Username  " 
+                        id="name" name="name"
+                        [(ngModel)]='u.name' [ngModelOptions]="{standalone: true}"
+                        #name="ngModel"
+                        required>
+                        <span class="focus-input"></span>
+                        <span class="symbol-input">
+                            <i class=" 	fas fa-address-card" aria-hidden="true"></i>
+                        </span>
+                        
+                
+                    </div>
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div class="w3-text-red"> Username is required.</div>
+                      </div>
+                      
+                    <div class="wrap-input">
+                        <input type="password" class="input"
+                        id="pass" name="pass"
+                        [(ngModel)]='u.password' [ngModelOptions]="{standalone: true}"
+                        #pass="ngModel" placeholder="Password"
+                        required>
+                        <span class="focus-input"></span>
+                        <span class="symbol-input">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        
+                    </div>
+                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                       <div class="w3-text-red"> Password is required.</div>
+                       
+                      </div>
+                    <br><br>
+                  <form>
+                    <div >
+                        <p>Register As:</p>
+                    <input type="radio" id="User" name="drone" value="huey"
+                    (click)="swap1()"
+                            checked>
+                    <label for="huey">User</label>
+                        
+                    <input type="radio" id="Transport Supplier" name="drone" value="dewey"
+                    
+                    (click)="swap2()">
+                    <label for="dewey">Transport Supplier</label>
+                    </div>
+
+                    <div class="login-form-btn-container">
+                        <button class="login-form-btn" (click)="submit()">Create Account</button>
+                    </div>
+                  <div class="text-center p-t-1">
+                      <a routerLink="/login" class="txt2">Existing User Click To Login<i class="fa fa-long-arrow-right " aria-hidden="true"></i></a>
+                  </div>
+                    
+                  </form>
+                  
+  
+                </form>
+  
+            </div>
+        </div>
+    </div>
+    </div>
+  
+  </body>
